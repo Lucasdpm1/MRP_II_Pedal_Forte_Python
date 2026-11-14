@@ -1,6 +1,9 @@
-def ler_inteiro():
+from datetime import datetime
+
+
+def ler_inteiro(pergunta="Qual Seu numero: "):
     while True:
-        numero = input("Qual Seu numero: ")
+        numero = input(pergunta)
         numero = numero.strip()
         try:
             numero = int(numero)
@@ -11,14 +14,17 @@ def ler_inteiro():
         return numero
 
 
-def ler_float():
+def ler_float(pergunta="Qual Seu Numero: ", minimo=None):
     while True:
-        numero = input("Qual Seu Numero: ")
+        numero = input(pergunta)
         numero = numero.strip().replace(",", ".")
         try:
             numero = float(numero)
         except ValueError:
             print("Numero Errado")
+            continue
+        if minimo is not None and numero < minimo:
+            print(f"O valor deve ser no minimo {minimo}")
             continue
 
         return numero
@@ -26,16 +32,13 @@ def ler_float():
 
 def ler_mensagem(pergunta):
     while True:
-        mensagem=input(pergunta)
-        mensagem=mensagem.strip()
-        if(mensagem==("")):
+        mensagem = input(pergunta)
+        mensagem = mensagem.strip()
+        if mensagem == "":
             print("Mensagem Vazia")
             continue
 
         return mensagem
-
-
-from datetime import datetime
 
 
 def ler_opcao(pergunta, opcoes_validas):
