@@ -44,3 +44,42 @@ def definir_roteiro(dados):
     dados["roteiros"][item]={"centro":centro,"tempo":tempo}
     persistencia.salvar_tudo(dados)
     print("Roteiro Salvo")
+
+
+
+def calcular_carga(dados,centro):
+    carga = [0, 0, 0, 0, 0, 0, 0, 0, 0]                                     
+    for  ordem in dados["ordens"]:
+        if ordem["tipo"] != "OP":
+            continue                                                        
+        if ordem["item"] not in dados["roteiros"]:
+            continue
+        roteiro = dados["roteiros"][ordem["item"]]
+        if roteiro["centro"] != centro:
+            continue
+        semana = ordem["liberar"]
+        if semana < 1 or semana > 8:
+            continue
+        carga[semana] = carga[semana] + ordem["qtd"] * roteiro["tempo"]
+    return carga
+
+
+def exibir_crp(dados,centro):
+    if centro not in dados["centros"]:
+        print("Centro nao encontrado")
+        return
+    capacidade = dados["centros"][centro]["capacidade"]
+    carga = calcular_carga(dados, centro)
+    utils.exibir_cabecalho("Carga x capacidade " + centro)
+    semanas_ruins = []                                                     
+    for  semana in range(1, 9):                                       
+        uso = carga[semana] / capacidade * 100
+        barra = "#" * int(uso / 10)                                        
+        if carga[semana] > capacidade:
+            aviso = "SOBRECARGA"
+            semanas_ruins.append(semana)
+        else:
+            aviso = ""
+        print(f"{semana} {carga[semana]:.1f} {uso:.0f}% {barra} {aviso}")
+    if len(semanas_ruins) > 0:                                              
+        print("Sugestao: antecipar OPs ou programar hora extra nas semanas", semanas_ruins)
