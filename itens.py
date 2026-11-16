@@ -54,10 +54,25 @@ def alterar_item(dados):
         return
 
     novo=novo.split(";")
+    if len(novo)!=6:
+        print("Digite os 6 valores separados por ;")
+        return
+    try:
+        custo=float(novo[2].replace(",","."))
+        lead_time=int(novo[3])
+        estoque_seg=float(novo[4].replace(",","."))
+        lote_minimo=float(novo[5].replace(",","."))
+    except ValueError:
+        print("Valor Errado")
+        return
+    if custo<0 or lead_time<0 or estoque_seg<0 or lote_minimo<0:
+        print("Valor Negativo")
+        return
     item['descricao']=novo[0]
     item['unidade']=novo[1]
-    item['custo']=float(novo[2])
-    item['lead_time']=int(novo[3])
-    item['estoque_seg']=float(novo[4])
-    item['lote_minimo']=float(novo[5])
+    item['custo']=custo
+    item['lead_time']=lead_time
+    item['estoque_seg']=estoque_seg
+    item['lote_minimo']=lote_minimo
     persistencia.salvar_tudo(dados)
+    print("Item alterado")

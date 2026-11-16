@@ -39,7 +39,7 @@ def grafico_estoque_projetado(dados,item):
         print("Execute o MRP antes")
         return
 
-    ep=dados["mrp"][item]["ep"]
+    ep=dados["mrp"][item]["projetado"]
     seguranca=dados["itens"][item]["estoque_seg"]
     semanas=[1,2,3,4,5,6,7,8]
     plt.plot(semanas,ep[1:],marker="o",label="Estoque projetado")

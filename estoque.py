@@ -17,7 +17,7 @@ def registrar_movimento(dados, codigo, tipo, qtd, documento, data):
 
     if(tipo=="S"):
         if qtd>saldo:
-            print("Saldo insuficiente")
+            print("Saldo insuficiente (saldo atual:",saldo,")")
             return False
         novo_saldo=saldo-qtd
 
@@ -54,7 +54,7 @@ def menu_movimentar(dados):
 
 def exibir_historico(dados,codigo):
     print(f"HISTORICO - {codigo} {dados['itens'][codigo]['descricao']}")
-    print("Data Tipo Qtd Saldo Documento")
+    print("Data Tipo Qtde Saldo Documento")
     for m in dados["movimentos"]:
         if m["item"]==codigo:
             qtd=m["qtd"]

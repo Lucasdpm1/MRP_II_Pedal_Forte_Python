@@ -96,7 +96,7 @@ def executar_mrp(dados):
 def imprimir_linha(titulo, lista):
     texto = f"{titulo:<22}"                             
     for semana in range(1, 9):
-        texto = texto + f"{lista[semana]:>7.1f}"          
+        texto = texto + f"{lista[semana]:>7g}"          
     print(texto)
 
 
@@ -108,10 +108,10 @@ def exibir_registro_mrp(dados, item):
     dados_item = dados["itens"][item]
     print("REGISTRO MRP -", item, dados_item["descricao"])
     print("Lead time:", dados_item["lead_time"], "| Est. seguranca:", dados_item["estoque_seg"], "| Lote min.:", dados_item["lote_minimo"], "| Estoque:", dados["estoque"][item])
-    print("Semana", [0, 1, 2, 3, 4, 5, 6, 7, 8])
-    print("Necessidade bruta", registro["bruta"])
-    print("Receb. programados", registro["programado"])
-    print("Estoque projetado", registro["projetado"])
-    print("Necessidade liquida", registro["liquida"])
-    print("Receb. planejados", registro["planejado"])
-    print("Liberacao planejada", registro["liberacao"])
+    imprimir_linha("Semana", [0, 1, 2, 3, 4, 5, 6, 7, 8])
+    imprimir_linha("Necessidade bruta", registro["bruta"])
+    imprimir_linha("Receb. programados", registro["programado"])
+    imprimir_linha("Estoque projetado", registro["projetado"])
+    imprimir_linha("Necessidade liquida", registro["liquida"])
+    imprimir_linha("Receb. planejados", registro["planejado"])
+    imprimir_linha("Liberacao planejada", registro["liberacao"])
