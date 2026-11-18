@@ -16,7 +16,7 @@ dados=persistencia.carregar_tudo()
 print("\n")
 while True:
     menu.menu()   
-    opcao=utils.ler_opcao("Escolha uma opcao: ",["0","1","2","3","4","5","6","7","8"])
+    opcao=utils.ler_opcao("Escolha uma opcao: ",["0","1","2","3","4","5","6","7","8","9"])
     print("\n")
 
     if(opcao=="0"): 
@@ -186,6 +186,19 @@ while True:
                 centro=utils.ler_mensagem("Centro: ").upper()
                 graficos.grafico_carga_capacidade(dados,centro)
             print("\n")
+    elif(opcao=="9"):
+        confirmar=utils.ler_mensagem("Apagar TODOS os dados? (S/N): ").upper()
+        if(confirmar=="S"):
+            for nome in ["itens.json","estrutura.json","estoque.json","movimentos.csv","centros.json","roteiros.json","mps.json","ordens.json"]:
+                arquivo=persistencia.caminho_arquivo(nome)
+                if(arquivo.exists()):
+                    arquivo.unlink()
+            dados=persistencia.carregar_tudo()
+            print("Todos os dados foram apagados")
+        else:
+            print("Operacao cancelada")
+        print("\n")
+
 
 persistencia.salvar_tudo(dados)    
 print("Obrigado Por Usar.")

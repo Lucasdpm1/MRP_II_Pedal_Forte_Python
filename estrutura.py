@@ -51,6 +51,6 @@ def listar_componentes(dados,pai):
 def exibir_estrutura(dados, codigo, nivel, qtd):
     item=dados["itens"][codigo]
     recuo="     " * nivel
-    print(f"{recuo}{codigo} {item['descricao']} ... {qtd} {item['unidade']}")
+    print(f"{recuo}{codigo} {item['descricao']} ... {qtd} {item['unidade']} Nivel {nivel}")
     for comp in dados["estrutura"].get(codigo, []):
-        exibir_estrutura(dados, comp["componente"], nivel + 1, comp["qtd"])
+        exibir_estrutura(dados, comp["componente"], nivel + 1, comp["qtd"] )

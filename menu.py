@@ -10,6 +10,7 @@ def menu():
     print("6. Carga x capacidade (CRP)")
     print("7. Custo padrao dos produtos")
     print("8. Relatorios (exportar CSV)")
+    print("9. Apagar todos os dados")
     print("0. Sair")
 
 def menu_cadastros():
