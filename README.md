@@ -46,7 +46,7 @@ MRP2_PedalForte/
     utils.py         leitura e validação das entradas, formatação
     data/            arquivos de dados
     graficos/        PNGs gerados (a pasta é criada sozinha)
-    docs/README.md
+    README.md
 ```
 
 ## Como usar
