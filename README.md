@@ -51,7 +51,7 @@ MRP2_PedalForte/
 
 ## Como usar
 
-O menu principal tem 8 opções: cadastros, estoque, plano mestre (MPS), executar MRP, ordens, carga x capacidade, custo padrão e relatórios (CSV e gráficos). Cada uma abre um submenu, e a opção 0 volta.
+O menu principal tem 9 opções: cadastros, estoque, plano mestre (MPS), executar MRP, ordens, carga x capacidade, custo padrão , relatórios (CSV e gráficos) e apagar dados. Cada uma abre um submenu, e a opção 0 volta.
 
 Pra testar um ciclo completo: cadastrar a demanda de um produto no MPS, executar o MRP, firmar e liberar uma ordem de produção, apontar a produção e depois olhar o estoque.
 
