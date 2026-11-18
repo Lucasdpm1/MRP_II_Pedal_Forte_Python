@@ -1,14 +1,14 @@
-from pathlib import Path
+import os
 import json
 import csv
 
-PASTA_DATA = Path(__file__).parent / "data"
 COLUNAS_MOVIMENTOS = ["data", "item", "tipo", "qtd", "saldo", "documento"]
 
 
 def caminho_arquivo(nome):
-    PASTA_DATA.mkdir(exist_ok=True)
-    return PASTA_DATA / nome
+    if not os.path.exists("data"):
+        os.mkdir("data")
+    return "data/" + nome
 
 
 def carregar_json(nome, padrao):
@@ -23,6 +23,7 @@ def carregar_json(nome, padrao):
 
     except json.JSONDecodeError:
         print("Arquivo Quebrado")
+        os.rename(caminho, caminho + ".quebrado")
         return padrao
 
 
@@ -34,15 +35,24 @@ def salvar_json(nome, conteudo):
 
 def carregar_csv(nome):
     caminho = caminho_arquivo(nome)
-    if not caminho.exists():
+    if not os.path.exists(caminho):
         return []
     with open(caminho, "r", newline="", encoding="utf-8") as arquivo:
-        leitor = csv.DictReader(arquivo)
+        separador = ","
+        if ";" in arquivo.readline():
+            separador = ";"
+        arquivo.seek(0)
+        leitor = csv.DictReader(arquivo, delimiter=separador)
         linhas = list(leitor)
+    validas = []
     for linha in linhas:
-        linha["qtd"] = float(linha["qtd"])
-        linha["saldo"] = float(linha["saldo"])
-    return linhas
+        try:
+            linha["qtd"] = float(linha["qtd"])
+            linha["saldo"] = float(linha["saldo"])
+            validas.append(linha)
+        except (ValueError, KeyError, TypeError):
+            print("Linha invalida ignorada em", nome)
+    return validas
 
 
 def salvar_csv(nome, linhas, colunas):

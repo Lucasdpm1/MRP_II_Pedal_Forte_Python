@@ -3,6 +3,9 @@ import persistencia
 
 def cadastrar_centro(dados):
     codigo = utils.ler_mensagem("Codigo do centro (ex: CT-01): ").upper()
+    if not codigo.replace("-", "").isalnum():
+        print("Codigo invalido")
+        return
     if codigo in dados["centros"]:
         print("codigo ja cadastrado. ")
         return

@@ -1,3 +1,4 @@
+import os
 import utils
 import persistencia
 import menu
@@ -191,8 +192,8 @@ while True:
         if(confirmar=="S"):
             for nome in ["itens.json","estrutura.json","estoque.json","movimentos.csv","centros.json","roteiros.json","mps.json","ordens.json"]:
                 arquivo=persistencia.caminho_arquivo(nome)
-                if(arquivo.exists()):
-                    arquivo.unlink()
+                if(os.path.exists(arquivo)):
+                    os.remove(arquivo)
             dados=persistencia.carregar_tudo()
             print("Todos os dados foram apagados")
         else:
