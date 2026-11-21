@@ -6,7 +6,7 @@ def ler_inteiro(pergunta="Qual Seu numero: "):
         numero = input(pergunta)
         numero = numero.strip()
         try:
-            numero = int(numero)
+            numero = int(numero)#try pra ver se o usuario digitou numero msm
         except ValueError:
             print("Numero Errado")
             continue
@@ -14,7 +14,7 @@ def ler_inteiro(pergunta="Qual Seu numero: "):
         return numero
 
 
-def ler_float(pergunta="Qual Seu Numero: ", minimo=None):
+def ler_float(pergunta="Qual Seu Numero: ", minimo=-999999):
     while True:
         numero = input(pergunta)
         numero = numero.strip().replace(",", ".")
@@ -23,7 +23,7 @@ def ler_float(pergunta="Qual Seu Numero: ", minimo=None):
         except ValueError:
             print("Numero Errado")
             continue
-        if minimo is not None and numero < minimo:
+        if numero < minimo:
             print(f"O valor deve ser no minimo {minimo}")
             continue
 
@@ -33,7 +33,7 @@ def ler_float(pergunta="Qual Seu Numero: ", minimo=None):
 def ler_mensagem(pergunta):
     while True:
         mensagem = input(pergunta)
-        mensagem = mensagem.strip()
+        mensagem = mensagem.strip()#ler string
         if mensagem == "":
             print("Mensagem Vazia")
             continue
@@ -42,10 +42,12 @@ def ler_mensagem(pergunta):
 
 
 def ler_opcao(pergunta, opcoes_validas):
-    opcoes = [op.upper() for op in opcoes_validas]
+    opcoes = []
+    for opcao in opcoes_validas:
+        opcoes.append(opcao.upper())
     while True:
         opcao = input(pergunta)
-        opcao = opcao.strip().upper()
+        opcao = opcao.strip().upper() #validar opcao do menus
         if opcao not in opcoes:
             print("Opcao Errada")
             continue
@@ -53,8 +55,8 @@ def ler_opcao(pergunta, opcoes_validas):
         return opcao
 
 
-def validar_codigo_item(codigo):
-    partes = codigo.split("-")
+def validar_codigo_item(codigo): #validar o codigo do item que o usuario fornece
+    partes = codigo.split("-")#coisa errada retorna false
     if len(partes) != 2:
         return False
     if partes[0] not in ["PA", "SA", "MP"]:
@@ -65,7 +67,7 @@ def validar_codigo_item(codigo):
     return True
 
 
-def ler_codigo_item(pergunta="Codigo do item: "):
+def ler_codigo_item(pergunta="Codigo do item: "):#achar codigo do item pesquisado
     while True:
         codigo = input(pergunta)
         codigo = codigo.strip().upper()
@@ -76,7 +78,7 @@ def ler_codigo_item(pergunta="Codigo do item: "):
         return codigo
 
 
-def ler_data(pergunta="Data (DD/MM/AAAA) [ENTER para hoje]: "):
+def ler_data(pergunta="Data (DD/MM/AAAA) [ENTER para hoje]: "):#salvar data nos arquivos
     while True:
         data = input(pergunta)
         data = data.strip()
@@ -91,13 +93,13 @@ def ler_data(pergunta="Data (DD/MM/AAAA) [ENTER para hoje]: "):
         return data
 
 
-def formatar_moeda(valor):
+def formatar_moeda(valor):#saida de valor monetario pradronizado
     texto = f"{valor:,.2f}"
     texto = texto.replace(",", "X").replace(".", ",").replace("X", ".")
     return f"R$ {texto}"
 
 
-def exibir_cabecalho(titulo):
+def exibir_cabecalho(titulo):#saida padronizada
     print("=" * 50)
     print(titulo.upper())
     print("=" * 50)

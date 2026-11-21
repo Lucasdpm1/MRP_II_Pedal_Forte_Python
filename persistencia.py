@@ -3,15 +3,15 @@ import json
 import csv
 
 COLUNAS_MOVIMENTOS = ["data", "item", "tipo", "qtd", "saldo", "documento"]
+#coluna sempre igual pros arquivos data, item, tipo, qtd, saldo, documento.
 
-
-def caminho_arquivo(nome):
+def caminho_arquivo(nome):  #caminho do arquivo
     if not os.path.exists("data"):
         os.mkdir("data")
     return "data/" + nome
 
 
-def carregar_json(nome, padrao):
+def carregar_json(nome, padrao): #carregar o arquivo json 
     caminho = caminho_arquivo(nome)
     try:
         with open(caminho, "r", encoding="utf-8") as arquivo:
@@ -33,7 +33,7 @@ def salvar_json(nome, conteudo):
         json.dump(conteudo, arquivo, indent=4, ensure_ascii=False)
 
 
-def carregar_csv(nome):
+def carregar_csv(nome):#abre o csv
     caminho = caminho_arquivo(nome)
     if not os.path.exists(caminho):
         return []
@@ -60,10 +60,10 @@ def salvar_csv(nome, linhas, colunas):
     with open(caminho, "w", newline="", encoding="utf-8") as arquivo:
         escritor = csv.DictWriter(arquivo, fieldnames=colunas)
         escritor.writeheader()
-        escritor.writerows(linhas)
+        escritor.writerows(linhas)#salva o csv
 
 
-def carregar_tudo():
+def carregar_tudo():  # carrega todos os arquivos de uma vez pra montar o dicionario dados principal
     dados = {}
     dados["itens"] = carregar_json("itens.json", {})
     dados["estrutura"] = carregar_json("estrutura.json", {})
@@ -76,7 +76,7 @@ def carregar_tudo():
     return dados
 
 
-def salvar_tudo(dados):
+def salvar_tudo(dados): #pega o dicionario dados e atualiza cada arquivo
     salvar_json("itens.json", dados["itens"])
     salvar_json("estrutura.json", dados["estrutura"])
     salvar_json("estoque.json", dados["estoque"])

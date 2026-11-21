@@ -13,12 +13,12 @@ import custos
 import relatorios
 import graficos      
 
-dados=persistencia.carregar_tudo()   
+dados=persistencia.carregar_tudo()#carrega os dados de todos os arquivos    
 print("\n")
 while True:
     menu.menu()   
     opcao=utils.ler_opcao("Escolha uma opcao: ",["0","1","2","3","4","5","6","7","8","9"])
-    print("\n")
+    print("\n")#chama o menu principal , um if pra cada resposta , chamando os sub menus pra cada operacao
 
     if(opcao=="0"): 
         break
@@ -30,21 +30,21 @@ while True:
             print("\n")
             if(opcao_cadastro=="0"):
                 break
-            elif(opcao_cadastro=="1"):
+            elif(opcao_cadastro=="1"):#cadastrar item
                 itens.cadastrar_item(dados)
             elif(opcao_cadastro=="2"):
-                itens.listar_dados(dados)
+                itens.listar_dados(dados)#listar item
             elif(opcao_cadastro=="3"):
-                itens.alterar_item(dados)
+                itens.alterar_item(dados)#alterar item
             elif(opcao_cadastro=="4"):
                 estrutura.adicionar_componente(dados)
-            elif(opcao_cadastro=="5"):
+            elif(opcao_cadastro=="5"):#adicionar compontente
                 codigo=utils.ler_codigo_item()
                 if(codigo not in dados["itens"]):
-                    print("Item nao encontrado")
+                    print("Item nao encontrado")#listar produtos
                 else:
                     estrutura.listar_componentes(dados,codigo)
-            elif(opcao_cadastro=="6"):
+            elif(opcao_cadastro=="6"):#exibir estrutura do produto
                 codigo=utils.ler_codigo_item()
                 if(codigo not in dados["itens"]):
                     print("Item nao encontrado")
@@ -59,7 +59,7 @@ while True:
             print("\n")
 
     elif(opcao=="2"):    #estoque
-        while True:
+        while True:#menu do estoque
             menu.menu_estoque()
             opcao_estoque=utils.ler_opcao("Opcao: ",["0","1","2","3"])
             print("\n")
@@ -82,7 +82,7 @@ while True:
                     estoque.exibir_historico(dados,codigo)   
             print("\n")
 
-    elif(opcao=="3"):   
+    elif(opcao=="3"):# menu mps
         while True:
             menu.menu_mps()
             opcao_mps=utils.ler_opcao("Opcao: ",["0","1","2"])
@@ -95,7 +95,7 @@ while True:
                 mps.exibir_mps(dados)
             print("\n")
 
-    elif(opcao=="4"):    #mrp
+    elif(opcao=="4"):    #executar mrp
         while True:
             menu.menu_mrp()
             opcao_mrp=utils.ler_opcao("Opcao: ",["0","1","2"])
@@ -112,7 +112,7 @@ while True:
                     mrp.exibir_registro_mrp(dados,codigo)
             print("\n")
 
-    elif(opcao=="5"):   
+    elif(opcao=="5"):  #ordens 
         while True:
             menu.menu_ordens()
             opcao_ordens=utils.ler_opcao("Opcao: ",["0","1","2","3","4","5"])
@@ -135,7 +135,7 @@ while True:
                 ordens.encerrar_ordem(dados,numero)
             print("\n")
 
-    elif(opcao=="6"):   
+    elif(opcao=="6"):  #capacidade da producao
         while True:
             menu.menu_crp()
             opcao_crp=utils.ler_opcao("Opcao: ",["0","1"])
@@ -162,7 +162,7 @@ while True:
                     custos.exibir_custo(dados,codigo)
             print("\n")
 
-    elif(opcao=="8"):   
+    elif(opcao=="8"):   #relatorios e graficos
         while True:
             menu.menu_relatorios()
             opcao_relatorio=utils.ler_opcao("Opcao: ",["0","1","2","3","4","5","6"])
@@ -187,7 +187,7 @@ while True:
                 centro=utils.ler_mensagem("Centro: ").upper()
                 graficos.grafico_carga_capacidade(dados,centro)
             print("\n")
-    elif(opcao=="9"):
+    elif(opcao=="9"):#apagar tudo do sistema
         confirmar=utils.ler_mensagem("Apagar TODOS os dados? (S/N): ").upper()
         if(confirmar=="S"):
             for nome in ["itens.json","estrutura.json","estoque.json","movimentos.csv","centros.json","roteiros.json","mps.json","ordens.json"]:
@@ -202,4 +202,4 @@ while True:
 
 
 persistencia.salvar_tudo(dados)    
-print("Obrigado Por Usar.")
+print("Obrigado Por Usar😁.")

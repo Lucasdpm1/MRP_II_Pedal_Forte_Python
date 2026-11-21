@@ -1,11 +1,11 @@
 import utils
 
-def calcular_custo_padrao(dados, codigo):
+def calcular_custo_padrao(dados, codigo):#calcula o custo padrao pra fazer uma unidade do item com mao de obra e custo de pecas compradas
     item = dados["itens"][codigo]
     if item["tipo"] == "MP":
         return item["custo"]                                           
     total = 0                                                              
-    for  comp in dados["estrutura"].get(codigo, []):                 
+    for  comp in dados["estrutura"].get(codigo, []):  #recursividade pra ir somando o preco de cada componente do item se for item mp é so o preco dele msm               
         custo_filho = calcular_custo_padrao(dados, comp["componente"])
         total = total + comp["qtd"] * custo_filho
     if codigo in dados["roteiros"]:
@@ -19,7 +19,7 @@ def exibir_custo(dados,codigo):
         print("Item não encontrado.")
         return
 
-    utils.exibir_cabecalho("Custo Padrão: "+codigo)
+    utils.exibir_cabecalho("Custo Padrão: "+codigo)#exibi o custo de cada item 
     for comp in dados["estrutura"].get(codigo,[]):
         codigo_filho=comp["componente"]
         custo_unitario=calcular_custo_padrao(dados,codigo_filho)

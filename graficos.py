@@ -2,7 +2,7 @@ import os
 import matplotlib.pyplot as plt
 import capacidade
 
-def grafico_posicao_estoque(dados):
+def grafico_posicao_estoque(dados):#itens e estoque dele no sistema com estoque de seguranca
     os.makedirs("graficos",exist_ok=True)
     codigos=[]
     saldos=[]
@@ -33,7 +33,7 @@ def grafico_posicao_estoque(dados):
     plt.close()
 
 
-def grafico_estoque_projetado(dados,item):
+def grafico_estoque_projetado(dados,item):#estoque projetado a ter 
     os.makedirs("graficos",exist_ok=True)
     if item not in dados.get("mrp",{}):
         print("Execute o MRP antes")
@@ -52,10 +52,10 @@ def grafico_estoque_projetado(dados,item):
     plt.close()
 
 
-def grafico_ordens_por_semana(dados):
+def grafico_ordens_por_semana(dados):#ordemns de cada semana
     os.makedirs("graficos",exist_ok=True)
-    op=[0,0,0,0,0,0,0,0,0]
-    oc=[0,0,0,0,0,0,0,0,0]
+    op=[0,0,0,0,0,0,0,0,0]#ordem de producao
+    oc=[0,0,0,0,0,0,0,0,0]#ordem de compra
     for ordem in dados["ordens"]:
         semana=ordem["entregar"]
         if semana<1 or semana>8:
@@ -76,7 +76,7 @@ def grafico_ordens_por_semana(dados):
     plt.close()
 
 
-def grafico_carga_capacidade(dados,centro):
+def grafico_carga_capacidade(dados,centro):#compara capacidade do centro com a demanda necessaria naquela semana
     os.makedirs("graficos",exist_ok=True)
     if centro not in dados["centros"]:
         print("Centro nao encontrado")

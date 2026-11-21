@@ -1,6 +1,6 @@
 import ordens
 def ordenar_itens_por_tipo(dados):
-    resultado=[]
+    resultado=[]#ordena os items por tipos 
     for tipo in ["PA","SA","MP"]:
         for codigo in dados["itens"]:
             if(dados["itens"][codigo]["tipo"]==tipo):
@@ -8,7 +8,7 @@ def ordenar_itens_por_tipo(dados):
 
     return resultado
 
-
+#coordena a execucao do sistema
 def obter_recebimentos_programados(dados, item):
     recibimento = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     for ordem in dados["ordens"]:
@@ -100,7 +100,7 @@ def imprimir_linha(titulo, lista):
     print(texto)
 
 
-def exibir_registro_mrp(dados, item):
+def exibir_registro_mrp(dados, item): 
     if item not in dados.get("mrp", {}):
         print("Execute o MRP antes")
         return

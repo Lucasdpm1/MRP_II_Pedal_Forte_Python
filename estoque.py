@@ -1,27 +1,27 @@
 import utils
 import persistencia
-def consultar_saldo(dados, codigo):
+def consultar_saldo(dados, codigo):#verifica o saldo do item
     return dados["estoque"][codigo]
 
-def verificar_alerta(dados, codigo):
+def verificar_alerta(dados, codigo):#consulta o saldo do item com o estoque de seguranca
     saldo=dados["estoque"][codigo]
     seguranca=dados["itens"][codigo]["estoque_seg"]
     if saldo<seguranca:
         print(f"Alerta: Saldo {saldo} abaixo do estoque de segurança {seguranca}")
-
+        #imprime aviso
 def registrar_movimento(dados, codigo, tipo, qtd, documento, data):
-    saldo=dados["estoque"][codigo]
+    saldo=dados["estoque"][codigo]#movimentacao no estoque
 
-    if(tipo=="E"):
+    if(tipo=="E"):#entrada 
         novo_saldo=saldo+qtd
 
-    if(tipo=="S"):
+    if(tipo=="S"):#saida
         if qtd>saldo:
             print("Saldo insuficiente (saldo atual:",saldo,")")
             return False
         novo_saldo=saldo-qtd
 
-    if(tipo=="A"):
+    if(tipo=="A"):#ajuste
         novo_saldo=saldo+qtd
         if novo_saldo<0:
             print("Novo Saldo Negativo/Invalido")
@@ -52,7 +52,7 @@ def menu_movimentar(dados):
         persistencia.salvar_tudo(dados)
 
 
-def exibir_historico(dados,codigo):
+def exibir_historico(dados,codigo):# mostra o historico do estoque e suas mudancas
     print(f"HISTORICO - {codigo} {dados['itens'][codigo]['descricao']}")
     print("Data Tipo Qtde Saldo Documento")
     for m in dados["movimentos"]:

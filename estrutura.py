@@ -1,6 +1,7 @@
 import utils
 import persistencia
-def validar_componente(dados, pai, filho):
+#faz a composicao completa do item com as pecas do que ele é formado
+def validar_componente(dados, pai, filho):# componentes pra formar um item completo
     tipo_pai=dados["itens"][pai]["tipo"]
     tipo_filho=dados["itens"][filho]["tipo"]
 
@@ -17,7 +18,7 @@ def validar_componente(dados, pai, filho):
 
     return True
 
-def adicionar_componente(dados):
+def adicionar_componente(dados):#adicionar componente a algum item
     pai =utils.ler_codigo_item("Item pai: ")
     filho =utils.ler_codigo_item("Componente: ")
     if(pai not in dados["itens"] or filho not in dados["itens"]):
@@ -39,7 +40,7 @@ def adicionar_componente(dados):
 
 
 
-def listar_componentes(dados,pai):
+def listar_componentes(dados,pai):#listar os componentes
     for componente in dados["estrutura"].get(pai,[]):
         codigo=componente["componente"]
         print (codigo)
@@ -48,7 +49,7 @@ def listar_componentes(dados,pai):
 
 
 
-def exibir_estrutura(dados, codigo, nivel, qtd):
+def exibir_estrutura(dados, codigo, nivel, qtd):#funcao recursiva pra mostrar a estrutura
     item=dados["itens"][codigo]
     recuo="     " * nivel
     print(f"{recuo}{codigo} {item['descricao']} ... {qtd} {item['unidade']} Nivel {nivel}")

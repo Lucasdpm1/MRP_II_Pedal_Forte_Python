@@ -1,6 +1,6 @@
 import persistencia
 import utils
-def exportar_estoque_csv(dados):
+def exportar_estoque_csv(dados):#pega o dicionario de dados e transforma em uma planilha
     linhas=[]
     for codigo in dados["itens"]:
         item=dados["itens"][codigo]
@@ -20,7 +20,7 @@ def exportar_estoque_csv(dados):
     print("Arquivo Estoque.csv gerado")
 
 
-def exportar_ordens_csv(dados):
+def exportar_ordens_csv(dados):#salva as ordens em um csv
     colunas=["numero","tipo","item","qtd","liberar","entregar","status","atrasada"]
     persistencia.salvar_csv("ordens.csv",dados["ordens"],colunas)
     print("Arquivo Ordens.csv gerado")

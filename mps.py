@@ -1,5 +1,5 @@
 import utils
-import persistencia
+import persistencia#plano de producao 
 def cadastrar_demanda(dados):
     codigo=utils.ler_codigo_item()
     if (codigo not in dados["itens"]):
@@ -9,7 +9,7 @@ def cadastrar_demanda(dados):
         print("So PA tem demanda")
         return
 
-    if(codigo not in dados["mps"]):
+    if(codigo not in dados["mps"]):#salva as demandas semanais
         dados["mps"][codigo] = {}
         for semana in range(1,9):
             dados["mps"][codigo][str(semana)]=0

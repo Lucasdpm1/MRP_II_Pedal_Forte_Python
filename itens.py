@@ -1,26 +1,26 @@
 import utils
 import persistencia
 def buscar_item(dados,codigo):
-    return  (dados["itens"].get(codigo))
+    return  (dados["itens"].get(codigo))#procura o item no dicionario com base no codigo dele
 
-def cadastrar_item(dados):
+def cadastrar_item(dados): #cadastra o item que o usuario digita e salva no arquivo de itens.json
     codigo=utils.ler_codigo_item()
     if(codigo in dados["itens"]):
         print("Codigo ja cadastrado. ")
         return
 
-    tipo=codigo[:2]
+    tipo=codigo[:2]#informacoes
     descricao=utils.ler_mensagem("Descrição: ")
     unidade=utils.ler_mensagem("Unidade (un,m,L): ")
     custo=utils.ler_float("Custo: ",0)
-    lead_time=utils.ler_inteiro("Lead Time (semanas): ")
+    lead_time=utils.ler_inteiro("Lead Time (semanas/tempo de producao): ")
     if(lead_time<0):
         print("Tempo Negativo.")
         return
     estoque_seg = utils.ler_float("Estoque de seguranca: ", 0)
     lote_minimo =utils.ler_float("Lote minimo: ", 0)
-    dados["itens"][codigo] = dicionario={
-        "descricao": descricao,
+    dados["itens"][codigo] = dicionario={#dicionario do itens que fica dentro do dados
+        "descricao": descricao, #chave do dicionario item é o codigo do item numerico
         "tipo": tipo,
         "unidade": unidade,
         "custo": custo,
@@ -33,7 +33,7 @@ def cadastrar_item(dados):
     print("Item cadastrado")
 
 
-def listar_dados(dados):
+def listar_dados(dados):#lista os dados do dicionario e printa tudo
     utils.exibir_cabecalho("Itens")
     for codigo in sorted(dados["itens"]):
         item=dados["itens"][codigo]
@@ -41,7 +41,7 @@ def listar_dados(dados):
         print("\n")
 
 
-def alterar_item(dados):
+def alterar_item(dados):#alterar algo de item codigo do item e tipo nao podem ser alterados
     codigo=utils.ler_codigo_item()
     item=buscar_item(dados,codigo)
     if item==None:
@@ -76,3 +76,7 @@ def alterar_item(dados):
     item['lote_minimo']=lote_minimo
     persistencia.salvar_tudo(dados)
     print("Item alterado")
+
+#mp = materia prima
+#pa=produto acabado
+#sa=semi acabado
