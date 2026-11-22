@@ -13,5 +13,10 @@
         "nome": "Montagem final",
         "capacidade": 16.0,
         "custo_hora": 40.0
+    },
+    "C5-04": {
+        "nome": "lucas centro",
+        "capacidade": 30.0,
+        "custo_hora": 10.0
     }
 }

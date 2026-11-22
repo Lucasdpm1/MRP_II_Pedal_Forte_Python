@@ -11,8 +11,8 @@ import ordens
 import mrp
 import custos
 import relatorios
-import graficos      
-
+import graficos
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 dados=persistencia.carregar_tudo()#carrega os dados de todos os arquivos    
 print("\n")
 while True:

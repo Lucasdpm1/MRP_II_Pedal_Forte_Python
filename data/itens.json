@@ -115,5 +115,14 @@
         "lead_time": 1,
         "estoque_seg": 0.0,
         "lote_minimo": 20.0
+    },
+    "PA-003": {
+        "descricao": "bike",
+        "tipo": "PA",
+        "unidade": "un",
+        "custo": 420.0,
+        "lead_time": 1,
+        "estoque_seg": 2.0,
+        "lote_minimo": 1.0
     }
 }

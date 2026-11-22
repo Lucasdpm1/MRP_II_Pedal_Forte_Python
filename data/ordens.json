@@ -1,1 +1,182 @@
-[]
+[
+    {
+        "numero": "OP-0001",
+        "tipo": "OP",
+        "item": "PA-001",
+        "qtd": 10.0,
+        "liberar": 1,
+        "entregar": 2,
+        "status": "ENCERRADA",
+        "atrasada": false
+    },
+    {
+        "numero": "OP-0002",
+        "tipo": "OP",
+        "item": "PA-001",
+        "qtd": 40.0,
+        "liberar": 3,
+        "entregar": 4,
+        "status": "FIRME",
+        "atrasada": false
+    },
+    {
+        "numero": "OP-0003",
+        "tipo": "OP",
+        "item": "PA-001",
+        "qtd": 10.0,
+        "liberar": 1,
+        "entregar": 2,
+        "status": "PLANEJADA",
+        "atrasada": false
+    },
+    {
+        "numero": "OP-0004",
+        "tipo": "OP",
+        "item": "PA-001",
+        "qtd": 30.0,
+        "liberar": 5,
+        "entregar": 6,
+        "status": "PLANEJADA",
+        "atrasada": false
+    },
+    {
+        "numero": "OP-0005",
+        "tipo": "OP",
+        "item": "PA-002",
+        "qtd": 20.0,
+        "liberar": 2,
+        "entregar": 3,
+        "status": "PLANEJADA",
+        "atrasada": false
+    },
+    {
+        "numero": "OP-0006",
+        "tipo": "OP",
+        "item": "PA-002",
+        "qtd": 25.0,
+        "liberar": 6,
+        "entregar": 7,
+        "status": "PLANEJADA",
+        "atrasada": false
+    },
+    {
+        "numero": "OP-0007",
+        "tipo": "OP",
+        "item": "SA-010",
+        "qtd": 40.0,
+        "liberar": 4,
+        "entregar": 5,
+        "status": "PLANEJADA",
+        "atrasada": false
+    },
+    {
+        "numero": "OP-0008",
+        "tipo": "OP",
+        "item": "SA-020",
+        "qtd": 80.0,
+        "liberar": 1,
+        "entregar": 2,
+        "status": "PLANEJADA",
+        "atrasada": false
+    },
+    {
+        "numero": "OP-0009",
+        "tipo": "OP",
+        "item": "SA-020",
+        "qtd": 80.0,
+        "liberar": 4,
+        "entregar": 5,
+        "status": "PLANEJADA",
+        "atrasada": false
+    },
+    {
+        "numero": "OP-0010",
+        "tipo": "OP",
+        "item": "SA-030",
+        "qtd": 20.0,
+        "liberar": 0,
+        "entregar": 1,
+        "status": "PLANEJADA",
+        "atrasada": true
+    },
+    {
+        "numero": "OP-0011",
+        "tipo": "OP",
+        "item": "SA-030",
+        "qtd": 20.0,
+        "liberar": 1,
+        "entregar": 2,
+        "status": "PLANEJADA",
+        "atrasada": false
+    },
+    {
+        "numero": "OP-0012",
+        "tipo": "OP",
+        "item": "SA-030",
+        "qtd": 20.0,
+        "liberar": 5,
+        "entregar": 6,
+        "status": "PLANEJADA",
+        "atrasada": false
+    },
+    {
+        "numero": "OC-0001",
+        "tipo": "OC",
+        "item": "MP-200",
+        "qtd": 100.0,
+        "liberar": 2,
+        "entregar": 4,
+        "status": "PLANEJADA",
+        "atrasada": false
+    },
+    {
+        "numero": "OC-0002",
+        "tipo": "OC",
+        "item": "MP-201",
+        "qtd": 2760.0,
+        "liberar": 2,
+        "entregar": 4,
+        "status": "PLANEJADA",
+        "atrasada": false
+    },
+    {
+        "numero": "OC-0003",
+        "tipo": "OC",
+        "item": "MP-202",
+        "qtd": 82.0,
+        "liberar": -1,
+        "entregar": 1,
+        "status": "PLANEJADA",
+        "atrasada": true
+    },
+    {
+        "numero": "OC-0004",
+        "tipo": "OC",
+        "item": "MP-202",
+        "qtd": 80.0,
+        "liberar": 2,
+        "entregar": 4,
+        "status": "PLANEJADA",
+        "atrasada": false
+    },
+    {
+        "numero": "OC-0005",
+        "tipo": "OC",
+        "item": "MP-300",
+        "qtd": 50.0,
+        "liberar": 3,
+        "entregar": 5,
+        "status": "PLANEJADA",
+        "atrasada": false
+    },
+    {
+        "numero": "OC-0006",
+        "tipo": "OC",
+        "item": "MP-302",
+        "qtd": 20.0,
+        "liberar": 5,
+        "entregar": 6,
+        "status": "PLANEJADA",
+        "atrasada": false
+    }
+]

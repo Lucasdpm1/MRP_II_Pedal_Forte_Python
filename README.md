@@ -113,3 +113,12 @@ Na carga dos centros (RN09) somei as OPs na semana em que elas são liberadas, d
 - RN04 a RN08: mrp.py
 - RN09: capacidade.py (calcular_carga)
 - RN10: estoque.py. Os movimentos só são acrescentados no histórico e nunca apagados, correção é feita por ajuste.
+
+## Videos
+-Funcionamento
+https://youtu.be/BpZiWcSoaBg
+
+-Código Python
+https://youtu.be/U6HiHStyk7c
+
+

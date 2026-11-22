@@ -35,10 +35,10 @@ def cadastrar_item(dados): #cadastra o item que o usuario digita e salva no arqu
 
 def listar_dados(dados):#lista os dados do dicionario e printa tudo
     utils.exibir_cabecalho("Itens")
+    print(f"{'Codigo':<9}{'Descricao':<28}{'Tipo':<6}{'Unid':<6}{'Custo':<10}{'Lead Time':<11}{'Est.Seg':<9}{'Lote Min'}")
     for codigo in sorted(dados["itens"]):
         item=dados["itens"][codigo]
-        print(f"{codigo} {item['descricao']} {item['tipo']} {item['unidade']} {item['custo']} {item['lead_time']} {item['estoque_seg']} {item['lote_minimo']}")
-        print("\n")
+        print(f"{codigo:<9}{item['descricao']:<28}{item['tipo']:<6}{item['unidade']:<6}{item['custo']:<10}{item['lead_time']:<11}{item['estoque_seg']:<9}{item['lote_minimo']}")
 
 
 def alterar_item(dados):#alterar algo de item codigo do item e tipo nao podem ser alterados
