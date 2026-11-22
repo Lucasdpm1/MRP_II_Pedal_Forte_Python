@@ -115,7 +115,7 @@ Na carga dos centros (RN09) somei as OPs na semana em que elas são liberadas, d
 - RN10: estoque.py. Os movimentos só são acrescentados no histórico e nunca apagados, correção é feita por ajuste.
 
 ## Videos
--Funcionamento
+-Funcionamento Do Sistema
 https://youtu.be/BpZiWcSoaBg
 
 -Código Python
